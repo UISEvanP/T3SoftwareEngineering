@@ -1,0 +1,32 @@
+<%= form_with(model: winepairing, local: true) do |form| %>
+  <% if winepairing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(winepairing.errors.count, "error") %> prohibited this winepairing from being saved:</h2>
+
+      <ul>
+      <% winepairing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.number_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maindish_id %>
+    <%= form.text_field :maindish_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wine_id %>
+    <%= form.select :beer_id, Wine.all.collect { |w| [w.name, w.id]} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @maindish.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @maindish.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @maindish.category %>
+</p>
+
+<%= link_to 'Edit', edit_maindish_path(@maindish) %> |
+<%= link_to 'Back', maindishes_path %>

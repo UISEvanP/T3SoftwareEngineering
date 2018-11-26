@@ -1,0 +1,32 @@
+<%= form_with(model: maindish, local: true) do |form| %>
+  <% if maindish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(maindish.errors.count, "error") %> prohibited this maindish from being saved:</h2>
+
+      <ul>
+      <% maindish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :beer_id, Maindish.all.collect { |m| [m.name, m.id]} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

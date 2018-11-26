@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @winepairing.weight %>
+</p>
+
+<p>
+  <strong>Maindish:</strong>
+  <%= @winepairing.maindish %>
+</p>
+
+<p>
+  <strong>wine:</strong>
+  <%= @winepairing.wine %>
+</p>
+
+<%= link_to 'Edit', edit_winepairing_path(@winepairing) %> |
+<%= link_to 'Back', winepairings_path %>

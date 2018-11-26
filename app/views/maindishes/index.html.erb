@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Maindishes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maindishes.each do |maindish| %>
+      <tr>
+        <td><%= maindish.name %></td>
+        <td><%= maindish.description %></td>
+        <td><%= maindish.category %></td>
+        <td><%= link_to 'Show', maindish %></td>
+        <td><%= link_to 'Edit', edit_maindish_path(maindish) %></td>
+        <td><%= link_to 'Destroy', maindish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Maindish', new_maindish_path %>
