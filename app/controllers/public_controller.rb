@@ -10,6 +10,7 @@ class PublicController < ApplicationController
   end
 
   def get_top_beverages
-      
+
   end
+  
 end
