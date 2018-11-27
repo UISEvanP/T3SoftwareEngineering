@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :maindish_id %>
-    <%= form.text_field :maindish_id, Beer.all.collect { |b| [b.name, b.id]} %>
+    <%= form.select :maindish_id, Maindish.all.collect { |m| [m.name, m.id]} %>
   </div>
 
   <div class="field">
