@@ -23,8 +23,8 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_area :category %>
-    <%# removed: , Maindish.all.collect { |m| [m.category, m.id]} from just after cateogry from the line above %>
+    <%= form.text_field :category %>
+    <%# removed: , Maindish.all.collect { |m| [m.category, m.id]} from just after cateogry from the line above, which was a select instead of a text_area %>
   </div>
 
   <div class="actions">
