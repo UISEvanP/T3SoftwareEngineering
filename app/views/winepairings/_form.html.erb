@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :wine_id %>
-    <%= form.select :beer_id, Wine.all.collect { |w| [w.name, w.id]} %>
+    <%= form.select :wine_id, Wine.all.collect { |w| [w.name, w.id]} %>
   </div>
 
   <div class="actions">

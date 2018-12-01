@@ -1,4 +1,4 @@
 class Winepairing < ApplicationRecord
   belongs_to :maindish
-  belongs_to :beer
+  belongs_to :wine
 end
