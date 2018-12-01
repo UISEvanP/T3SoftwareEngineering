@@ -8,7 +8,9 @@
 <p> Pairings:
   <ul id = "public">
     <% @beerPairings.all.each do |bp| %>
-    <li><%= bp.beer_id %></li>
+    <%= @beerID = bp.beer_id %>
+
+    <li><%= Beer.find_by(id: @beerID).name %></li>
     <%end%>
   </ul>
 
