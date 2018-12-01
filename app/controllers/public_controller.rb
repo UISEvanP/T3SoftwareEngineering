@@ -7,7 +7,12 @@ class PublicController < ApplicationController
   def order
     @aMaindish = ''
     @selectedDish = params[:order_name]
-    get_a_maindish(@selectedDish)
+    if (@selectedDish == nil)
+      @selectedDish = Maindish.first.name
+      get_a_maindish(@selectedDish)
+    else
+      get_a_maindish(@selectedDish)
+    end
     get_all_maindishes
     show_top_beer
 
@@ -29,6 +34,7 @@ class PublicController < ApplicationController
   end
 
   def show_top_beer
+
   @beerPairings = @aMaindish.beerpairings
 
 
