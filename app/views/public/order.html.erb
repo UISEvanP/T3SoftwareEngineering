@@ -1,9 +1,29 @@
 <h1>Public#order</h1>
 <p>Find me in app/views/public/order.html.erb</p>
 
-<p> Show me a beer:
-    <%= @aBeer %>
+<p> Selected Maindish:
+    <%= @selectedDish %>
+    <%= @aMaindish.id %>
 </p>
-<p> Show me all Beers from controller method:
-  <%= @aMaindish %>
-</p>
+<p> Pairings:
+  <ul id = "public">
+    <% @beerPairings.all.each do |bp| %>
+    <li><%= bp.beer_id %></li>
+    <%end%>
+  </ul>
+
+
+</p> All the dishes:
+    <ul id = "public">
+     <% Maindish.all.each do |c| %>
+     <li><%= c.name %></li>
+     <% end %>
+    </ul>
+
+
+
+<form action="order" method="get">
+      <label for="maindish">What would you like to eat?</label>
+      <input type="select" name="order_name" id="maindish" required/>
+      <input type="submit" value="Submit order" required/>
+    </form>

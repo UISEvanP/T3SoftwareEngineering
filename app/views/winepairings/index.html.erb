@@ -16,8 +16,8 @@
     <% @winepairings.each do |winepairing| %>
       <tr>
         <td><%= winepairing.weight %></td>
-        <td><%= winepairing.maindish %></td>
-        <td><%= winepairing.wine %></td>
+        <td><%= winepairing.maindish.name %></td>
+        <td><%= winepairing.wine.name %></td>
         <td><%= link_to 'Show', winepairing %></td>
         <td><%= link_to 'Edit', edit_winepairing_path(winepairing) %></td>
         <td><%= link_to 'Destroy', winepairing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
