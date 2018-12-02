@@ -9,8 +9,9 @@
   <ul id = "public">
     <% @beerPairings.all.each do |bp| %>
     <% @beerID = bp.beer_id %>
+    <% @beerWeight = bp.weight %>
 
-    <li><%= Beer.find_by(id: @beerID).name %></li>
+    <li>Name: <%= Beer.find_by(id: @beerID).name%> Weight: <%= @beerWeight %></li>
     <%end%>
   </ul>
 
