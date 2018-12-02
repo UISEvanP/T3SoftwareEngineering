@@ -24,7 +24,11 @@
   </ul>
 </p>
 <p> Top Beer:
+  <% if(@selected_beverage == "beer") %>
   <%= Beer.find_by(id: @topBeer).name %>
+  <%else%>
+  <%= Wine.find_by(id: @topWine).name %>
+  <%end%>
 </p>
 
 <form action="beverage_pairing" method="get">
