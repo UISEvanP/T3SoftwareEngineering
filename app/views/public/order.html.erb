@@ -16,7 +16,14 @@
   </ul>
 
 
-</p> All the dishes:
+
+
+</p>
+<p> Top Beer:
+  <%=  Beer.find_by(id: @topBeer).name %>
+</p>
+
+All the dishes:
     <ul id = "public">
      <% Maindish.all.each do |c| %>
      <li><%= c.name %></li>

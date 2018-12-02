@@ -5,6 +5,7 @@ class PublicController < ApplicationController
   end
 
   def order
+    @topBeer
     @aMaindish = ''
     @selectedDish = params[:order_name]
     if (@selectedDish == nil)
@@ -13,8 +14,9 @@ class PublicController < ApplicationController
     else
       get_a_maindish(@selectedDish)
     end
-    get_all_maindishes
     show_top_beer
+    get_all_maindishes
+
 
 
   end
@@ -34,9 +36,18 @@ class PublicController < ApplicationController
   end
 
   def show_top_beer
+    @beerPairings = @aMaindish.beerpairings
+    @beerP = @aMaindish.beerpairings
+    @beerParingsArr = [@beerP.first]
+    @topBeer = @beerP.first.beer_id
+    @topBeerWeight = @beerP.first.weight
 
-  @beerPairings = @aMaindish.beerpairings
-
+    @beerP.each do |what|
+      if (what.weight > @topBeerWeight)
+        @topBeerWeight = what.weight
+        @topBeer = what.beer_id
+      end
+    end
 
   end
 
