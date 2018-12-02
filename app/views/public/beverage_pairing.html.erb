@@ -23,7 +23,7 @@
     <% end %>
   </ul>
 </p>
-<p> Top Beer:
+<p> Top Beverage:
   <% if(@selected_beverage == "beer") %>
   <%= Beer.find_by(id: @topBeer).name %>
   <%else%>
