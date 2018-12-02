@@ -1,0 +1,32 @@
+<%= @selected_beverage %>
+<p> Selected Maindish:
+    <%= @selectedDish %>
+
+</p>
+<p> Pairings:
+  <ul id = "public">
+    <% if(@selected_beverage == "beer") %>
+      <% @beerPairings.all.each do |bp| %>
+        <% @beerID = bp.beer_id %>
+        <% @beerWeight = bp.weight %>
+
+        <li>Name: <%= Beer.find_by(id: @beerID).name %> Weight: <%= @beerWeight %></li>
+      <%end%>
+    <% end %>
+
+    <% if(@selected_beverage == "wine") %>
+      <% @winePairings.all.each do |w| %>
+        <% @wineID = w.wine_id %>
+        <% @wineWeight = w.weight %>
+        <li>Name: <%= Wine.find_by(id: @wineID).name%> Weight: <%= @wineWeight %></li>
+      <%end%>
+    <% end %>
+  </ul>
+</p>
+<p> Top Beer:
+  <%= Beer.find_by(id: @topBeer).name %>
+</p>
+
+<form action="beverage_pairing" method="get">
+  <input type="submit" value="Finalize Order" required/>
+</form>

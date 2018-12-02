@@ -4,6 +4,26 @@ class PublicController < ApplicationController
   def welcome
   end
 
+  def get_beverage_type
+    @selected_beverage = params[:beverage_selection]
+  end
+
+  def beverage_pairing
+    get_beverage_type
+    @topBeer
+    @aMaindish = ''
+    @selectedDish = params[:order_name]
+    if (@selectedDish == nil)
+      @selectedDish = Maindish.first.name
+      get_a_maindish(@selectedDish)
+    else
+      get_a_maindish(@selectedDish)
+    end
+    show_top_beer
+    show_top_wine
+    get_all_maindishes
+  end
+
   def order
     @topBeer
     @aMaindish = ''
@@ -15,10 +35,8 @@ class PublicController < ApplicationController
       get_a_maindish(@selectedDish)
     end
     show_top_beer
+    show_top_wine
     get_all_maindishes
-
-
-
   end
 
   def messagewaiter
@@ -33,6 +51,7 @@ class PublicController < ApplicationController
 
   def get_all_maindishes
     @allDieshes = Maindish.all
+
   end
 
   def show_top_beer
@@ -49,6 +68,20 @@ class PublicController < ApplicationController
       end
     end
 
+  end
+
+  def show_top_wine
+    @winePairings = @aMaindish.winepairings
+    @wineP = @aMaindish.winepairings
+    @topWine = @wineP.first.wine_id
+    @topWineWeight = @wineP.first.weight
+
+    @wineP.each do |w|
+      if (w.weight > @topWineWeight)
+        @topWineWeight = w.weight
+        @topWine = w.wine_id
+      end
+    end
   end
 
 end
