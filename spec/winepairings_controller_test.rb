@@ -17,7 +17,7 @@ class WinepairingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create winepairing" do
     assert_difference('Winepairing.count') do
-      post winepairings_url, params: { winepairing: { wine_id: @winepairing.wine_id, maindish_id: @winepairing.maindish_id, weight: @winepairing.weight } }
+      post winepairings_url, params: { winepairing: { beer_id: @winepairing.beer_id, maindish_id: @winepairing.maindish_id, weight: @winepairing.weight } }
     end
 
     assert_redirected_to winepairing_url(Winepairing.last)
@@ -34,7 +34,7 @@ class WinepairingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update winepairing" do
-    patch winepairing_url(@winepairing), params: { winepairing: { wine_id: @winepairing.wine_id, maindish_id: @winepairing.maindish_id, weight: @winepairing.weight } }
+    patch winepairing_url(@winepairing), params: { winepairing: { beer_id: @winepairing.beer_id, maindish_id: @winepairing.maindish_id, weight: @winepairing.weight } }
     assert_redirected_to winepairing_url(@winepairing)
   end
 

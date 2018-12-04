@@ -3,9 +3,9 @@
 one:
   weight: 1
   maindish: one
-  beer: one
+  wine: one
 
 two:
   weight: 1
   maindish: two
-  beer: two
+  wine: two
