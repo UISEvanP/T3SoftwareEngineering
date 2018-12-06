@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'public#welcome'
   get 'public/check_beverage_type'
   get 'public/beverage_pairing'
   get 'public/welcome'
