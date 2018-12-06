@@ -1,16 +1,23 @@
-<%= @selected_beverage %>
-<p> Selected Maindish:
-    <%= @selectedDish %>
-
+<p>
+  <h2>
+    Top Beverage for your choice of dish:
+  </h2>
+  <h1>
+    <% if(@selected_beverage == "beer") %>
+    <%= Beer.find_by(id: @topBeer).name %>
+    <%else%>
+    <%= Wine.find_by(id: @topWine).name %>
+    <%end%>
+  </h1>
 </p>
-<p> Pairings:
+<p> All Possible Pairings with Score (1-10, where 10 is the best pairing):
   <ul id = "public">
     <% if(@selected_beverage == "beer") %>
       <% @beerPairings.all.each do |bp| %>
         <% @beerID = bp.beer_id %>
         <% @beerWeight = bp.weight %>
 
-        <li>Name: <%= Beer.find_by(id: @beerID).name %> Weight: <%= @beerWeight %></li>
+        <li><h3><%= Beer.find_by(id: @beerID).name %> <br/> Score: <%= @beerWeight %> </h3></li>
       <%end%>
     <% end %>
 
@@ -18,18 +25,12 @@
       <% @winePairings.all.each do |w| %>
         <% @wineID = w.wine_id %>
         <% @wineWeight = w.weight %>
-        <li>Name: <%= Wine.find_by(id: @wineID).name%> Weight: <%= @wineWeight %></li>
+        <li>Name: <%= Wine.find_by(id: @wineID).name%> Score: <%= @wineWeight %></li>
       <%end%>
     <% end %>
   </ul>
 </p>
-<p> Top Beverage:
-  <% if(@selected_beverage == "beer") %>
-  <%= Beer.find_by(id: @topBeer).name %>
-  <%else%>
-  <%= Wine.find_by(id: @topWine).name %>
-  <%end%>
-</p>
+
 
 <form action="messagewaiter" method="get">
   <input type="submit" value="Finalize Order" required/>

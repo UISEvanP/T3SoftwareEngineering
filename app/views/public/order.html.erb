@@ -1,11 +1,3 @@
-
-All the dishes:
-    <ul id = "public">
-     <% Maindish.all.each do |c| %>
-     <li><%= c.name %></li>
-     <% end %>
-    </ul>
-
 <form action="beverage_pairing" method="get">
   Select Beverage Preference:
   <div class="form-check">
@@ -20,7 +12,14 @@ All the dishes:
       wine
     </label>
   </div>
-  <label for="maindish">What would you like to eat?</label>
+  <label for="maindish">Please enter the meal you'd like from the list below</label>
   <input type="select" name="order_name" id="maindish" required/>
   <input type="submit" value="Submit order" required/>
 </form>
+
+Main dishes:
+    <ul id = "public">
+     <% Maindish.all.each do |c| %>
+     <li><%= c.name %></li>
+     <% end %>
+    </ul>
