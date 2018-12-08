@@ -10,6 +10,7 @@ class WinepairingsController < ApplicationController
   # GET /winepairings/1
   # GET /winepairings/1.json
   def show
+    #not needed for our implementation
   end
 
   # GET /winepairings/new
@@ -19,6 +20,7 @@ class WinepairingsController < ApplicationController
 
   # GET /winepairings/1/edit
   def edit
+    #not needed for our implementation
   end
 
   # POST /winepairings

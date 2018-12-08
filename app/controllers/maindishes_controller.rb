@@ -10,6 +10,7 @@ class MaindishesController < ApplicationController
   # GET /maindishes/1
   # GET /maindishes/1.json
   def show
+    #not needed for our implementation
   end
 
   # GET /maindishes/new
@@ -19,6 +20,7 @@ class MaindishesController < ApplicationController
 
   # GET /maindishes/1/edit
   def edit
+    #not needed for our implementation
   end
 
   # POST /maindishes

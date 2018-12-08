@@ -1,16 +1,21 @@
 class PublicController < ApplicationController
   # run the get_a_beverage method only before the order view
-#before_action :get_a_beverage, only: [:order]
+  # before_action :get_a_beverage, only: [:order]
+
+  # Although a stub, this is needed for routing
   def welcome
   end
 
+  # Assign the instance variable for a givem parameter associated with the beverage selection from user
   def get_beverage_type
     @selected_beverage = params[:beverage_selection]
   end
 
+  
+  # Assigns an instance variable given the order_name parameter from the user. If one is not provided, the first item in the talbe is used as default.
+  #
   def beverage_pairing
     get_beverage_type
-    @topBeer
     @aMaindish = ''
     @selectedDish = params[:order_name]
     if (@selectedDish == nil)
@@ -24,8 +29,10 @@ class PublicController < ApplicationController
     get_all_maindishes
   end
 
+  # Takes in a user selecting via parameters from the browser
+  # Default for @selectedDish is the first item in the Maindish table
+  # Calls show_top_beer, show_top_wine, get_all_maindishes to make sure all is up to date
   def order
-    @topBeer
     @aMaindish = ''
     @selectedDish = params[:order_name]
     if (@selectedDish == nil)
@@ -37,14 +44,11 @@ class PublicController < ApplicationController
     show_top_beer
     show_top_wine
     get_all_maindishes
-  end
-
-  def messagewaiter
   end
 
   private
 
-
+  # Creates the instance variable for the maindish if found from maindish table
   def get_a_maindish(dish_name)
     @aMaindish = Maindish.find_by(name: dish_name)
   end
@@ -54,10 +58,11 @@ class PublicController < ApplicationController
 
   end
 
+  # Set instance variables to the pairings related to the maindish
+  # returns the beer with the top weight for the given main dish
   def show_top_beer
     @beerPairings = @aMaindish.beerpairings
     @beerP = @aMaindish.beerpairings
-    @beerParingsArr = [@beerP.first]
     @topBeer = @beerP.first.beer_id
     @topBeerWeight = @beerP.first.weight
 
@@ -70,6 +75,8 @@ class PublicController < ApplicationController
 
   end
 
+  # Set instance variables to the pairings related to the maindish
+  # returns the beer with the top weight for the given main dish
   def show_top_wine
     @winePairings = @aMaindish.winepairings
     @wineP = @aMaindish.winepairings
